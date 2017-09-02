@@ -1,0 +1,42 @@
+@import "screen1";
+@import "screen2";
+@import "screen3";
+*
+{
+    font-family: 'Roboto';
+    font-style: normal;
+    box-sizing: border-box;
+}
+.hidden
+{
+	display: none;
+}
+.shown
+{
+	display: block;
+}
+.screensCont
+{
+	position: absolute;
+    bottom: 35px;
+    top: 0px;
+    width: 100%;
+    overflow: auto;
+}
+.screen
+{
+	height: 100%;
+}
+.pageFooter
+{
+	position: absolute;
+	width: 100%;
+	bottom: 10px;
+	text-align: center;
+}
+a:link,a:visited{
+color: #E91E63;
+}
+a:hover{
+color: #880E4F;
+}

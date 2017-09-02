@@ -1,0 +1,132 @@
+/* line 1, ../sass/_screen1.scss */
+.techItem {
+  margin: 2%;
+  float: left;
+  width: 16%;
+  height: 100%;
+  box-shadow: 1px 1px 10px 1px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  cursor: pointer;
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 767px) {
+  /* line 13, ../sass/_screen1.scss */
+  .techItem {
+    width: 96%;
+    height: 16%;
+  }
+}
+/* line 1, ../sass/_screen2.scss */
+.repositoryItem {
+  margin: 2%;
+  float: left;
+  width: 96%;
+  box-shadow: 1px 1px 10px 1px rgba(0, 0, 0, 0.2);
+  text-align: left;
+  cursor: pointer;
+}
+
+/* line 9, ../sass/_screen2.scss */
+.repDetailsCont {
+  width: 50%;
+}
+
+/* line 13, ../sass/_screen2.scss */
+.repLangCont, .repRatingCont {
+  min-width: 25%;
+}
+
+/* line 17, ../sass/_screen2.scss */
+.repDetailsCont, .repLangCont {
+  float: left;
+}
+
+/* line 21, ../sass/_screen2.scss */
+.repRatingCont {
+  float: right;
+}
+
+/* line 25, ../sass/_screen2.scss */
+.repName {
+  font-size: 18px;
+  font-weight: 600;
+  color: #E91E63;
+}
+
+/* line 31, ../sass/_screen2.scss */
+.repName:hover {
+  color: #880E4F;
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 767px) {
+  /* line 37, ../sass/_screen2.scss */
+  .repositoryItem {
+    width: 96%;
+    height: 16%;
+  }
+}
+/* line 1, ../sass/_screen3.scss */
+.leftPanel {
+  display: table;
+}
+
+/* line 5, ../sass/_screen3.scss */
+.userDetailTextCont {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+/* line 10, ../sass/_screen3.scss */
+.userImg {
+  height: 250px;
+  width: 250px;
+}
+
+/* line 4, ../sass/common.scss */
+* {
+  font-family: 'Roboto';
+  font-style: normal;
+  box-sizing: border-box;
+}
+
+/* line 10, ../sass/common.scss */
+.hidden {
+  display: none;
+}
+
+/* line 14, ../sass/common.scss */
+.shown {
+  display: block;
+}
+
+/* line 18, ../sass/common.scss */
+.screensCont {
+  position: absolute;
+  bottom: 35px;
+  top: 0px;
+  width: 100%;
+  overflow: auto;
+}
+
+/* line 26, ../sass/common.scss */
+.screen {
+  height: 100%;
+}
+
+/* line 30, ../sass/common.scss */
+.pageFooter {
+  position: absolute;
+  width: 100%;
+  bottom: 10px;
+  text-align: center;
+}
+
+/* line 37, ../sass/common.scss */
+a:link, a:visited {
+  color: #E91E63;
+}
+
+/* line 40, ../sass/common.scss */
+a:hover {
+  color: #880E4F;
+}

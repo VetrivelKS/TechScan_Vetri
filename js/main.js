@@ -7,7 +7,7 @@ $(function() {
 
 var renderScreen1 = function(){
 	var template = Handlebars.templates['techList'];
-	$('.screen1').append(template(techList));
+	$('.screen1').append(template(techList)).addClass("shown");
 	registerScreen1events();
 }
 
@@ -66,7 +66,8 @@ var screen2Cbk = function(response)
 {
 	var template = Handlebars.templates['repResults'];
 	var content = template(response);
-	$('.screen1').hide();
+	$(".screen").addClass("hidden").removeClass("shown");
+	$(".screen2").removeClass("hidden").addClass("shown");
 	$('.repResults').text("");
 	$('.repResults').append(content);
 	registerScreen2events();
@@ -76,7 +77,9 @@ var screen3Cbk = function(response)
 	var template = Handlebars.templates['userDetails'];
 	var content = template(response);
 	$('.userDetails').append(content);
-	$('.screen2').hide();
+	$(".screen").addClass("hidden").removeClass("shown");
+	$(".screen3").removeClass("hidden").addClass("shown");
+
 }
 var renderUserReposCbk = function(response)
 {

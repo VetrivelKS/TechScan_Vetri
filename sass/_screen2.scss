@@ -1,0 +1,41 @@
+.repositoryItem{
+    margin: 2%;
+    float: left;
+    width: 96%;
+	box-shadow: 1px 1px 10px 1px rgba(0, 0, 0, 0.2);
+	text-align: left;
+	cursor: pointer;
+}
+.repDetailsCont
+{
+	width: 50%;
+}
+.repLangCont,.repRatingCont
+{
+	min-width: 25%;
+}
+.repDetailsCont,.repLangCont
+{
+	float: left;
+}
+.repRatingCont
+{
+	float: right;
+}
+.repName
+{
+	font-size: 18px;
+    font-weight: 600;
+	color: #E91E63;
+}
+.repName:hover{
+	color: #880E4F;
+}
+
+@media only screen and (min-device-width : 320px) and(max-device-width : 767px)
+{
+	.repositoryItem{
+		width: 96%;
+		height: 16%;
+	}
+}
