@@ -14,7 +14,7 @@
 {
 	min-width: 25%;
 }
-.repDetailsCont,.repLangCont
+.repDetailsCont,.repLangCont,.repositoryCountCont
 {
 	float: left;
 }
@@ -31,7 +31,15 @@
 .repName:hover{
 	color: #880E4F;
 }
-
+.sortCont
+{
+	float: right;
+    margin-right: 4%;
+}
+.repositoryCountCont
+{
+	margin-left: 2%;
+}
 @media only screen and (min-device-width : 320px) and(max-device-width : 767px)
 {
 	.repositoryItem{

@@ -34,9 +34,17 @@
 	bottom: 10px;
 	text-align: center;
 }
-a:link,a:visited{
+.backButton
+{
+	height: 25px;
+	margin-left: 25px;
+	margin-top: 25px;
+	cursor: pointer;
+}
+
+a:link,a:visited,.backButton{
 color: #E91E63;
 }
-a:hover{
+a:hover,.backButton:hover{
 color: #880E4F;
 }

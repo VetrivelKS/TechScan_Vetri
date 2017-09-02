@@ -37,7 +37,7 @@
 }
 
 /* line 17, ../sass/_screen2.scss */
-.repDetailsCont, .repLangCont {
+.repDetailsCont, .repLangCont, .repositoryCountCont {
   float: left;
 }
 
@@ -58,8 +58,19 @@
   color: #880E4F;
 }
 
+/* line 34, ../sass/_screen2.scss */
+.sortCont {
+  float: right;
+  margin-right: 4%;
+}
+
+/* line 39, ../sass/_screen2.scss */
+.repositoryCountCont {
+  margin-left: 2%;
+}
+
 @media only screen and (min-device-width: 320px) and (max-device-width: 767px) {
-  /* line 37, ../sass/_screen2.scss */
+  /* line 45, ../sass/_screen2.scss */
   .repositoryItem {
     width: 96%;
     height: 16%;
@@ -74,12 +85,14 @@
 .userDetailTextCont {
   display: table-cell;
   vertical-align: middle;
+  margin-left: 10px;
 }
 
-/* line 10, ../sass/_screen3.scss */
+/* line 11, ../sass/_screen3.scss */
 .userImg {
-  height: 250px;
-  width: 250px;
+  height: 200px;
+  width: 200px;
+  margin: 10px 20px;
 }
 
 /* line 4, ../sass/common.scss */
@@ -122,11 +135,19 @@
 }
 
 /* line 37, ../sass/common.scss */
-a:link, a:visited {
+.backButton {
+  height: 25px;
+  margin-left: 25px;
+  margin-top: 25px;
+  cursor: pointer;
+}
+
+/* line 45, ../sass/common.scss */
+a:link, a:visited, .backButton {
   color: #E91E63;
 }
 
-/* line 40, ../sass/common.scss */
-a:hover {
+/* line 48, ../sass/common.scss */
+a:hover, .backButton:hover {
   color: #880E4F;
 }

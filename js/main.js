@@ -19,6 +19,11 @@ var registerScreen1events = function(){
 		$.get(curRepListUrl, 
 		screen2Cbk)
 	});
+	$(".backButton").click(function(e){
+		var moveTo = $(e.target).attr("moveTo");
+		$(".screen").addClass("hidden").removeClass("shown");
+		$("."+((moveTo=="s1")?"screen1":"screen2")).removeClass("hidden").addClass("shown");
+	});
 }
 var registerScreen2events = function(){
 	$("#sort").change(function () {
@@ -70,12 +75,14 @@ var screen2Cbk = function(response)
 	$(".screen2").removeClass("hidden").addClass("shown");
 	$('.repResults').text("");
 	$('.repResults').append(content);
+	$('.repositoryCount').text(response.total_count+" ");
 	registerScreen2events();
 }
 var screen3Cbk = function(response)
 {
 	var template = Handlebars.templates['userDetails'];
 	var content = template(response);
+	$('.userDetails').text("");
 	$('.userDetails').append(content);
 	$(".screen").addClass("hidden").removeClass("shown");
 	$(".screen3").removeClass("hidden").addClass("shown");
