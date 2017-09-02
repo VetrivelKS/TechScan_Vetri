@@ -9,14 +9,13 @@ var renderScreen1 = function(){
 	var template = Handlebars.templates['techList'];
 	$('.screen1').append(template(techList));
 	registerScreen1events();
-	registerScreen2events();
 }
 
 var registerScreen1events = function(){
 	$(".techItem").click(function(e)
 	{
 		var selectedTech = $(e.target).closest(".techItem").attr("techName");
-		curRepListUrl = "https://api.github.com/search/repositories?q="+selectedTech;
+		curRepListUrl = "https://api.github.com/search/repositories?q="+selectedTech+pageLimit;
 		$.get(curRepListUrl, 
 		screen2Cbk)
 	});
@@ -55,6 +54,13 @@ var registerScreen2events = function(){
 					$.get(sortUrl,screen2Cbk)
 		}
 	});
+	$('.repName').click(function(e){
+		var ownerId = $(e.target).closest(".repositoryItem").attr("userId");
+		var ownerDetailsUrl = "https://api.github.com/users/"+ownerId;
+		$.get(ownerDetailsUrl,screen3Cbk);
+		var ownerReposUrl = ownerDetailsUrl+"/repos";
+		$.get(ownerReposUrl,renderUserReposCbk);
+	});
 }
 var screen2Cbk = function(response)
 {
@@ -63,4 +69,18 @@ var screen2Cbk = function(response)
 	$('.screen1').hide();
 	$('.repResults').text("");
 	$('.repResults').append(content);
+	registerScreen2events();
+}
+var screen3Cbk = function(response)
+{
+	var template = Handlebars.templates['userDetails'];
+	var content = template(response);
+	$('.userDetails').append(content);
+	$('.screen2').hide();
+}
+var renderUserReposCbk = function(response)
+{
+	var template = Handlebars.templates['repResults'];
+	var content = template({"items":response});
+	$('.ownerRepResults').append(content);
 }
