@@ -1,0 +1,1 @@
+handlebars js/templates/ -f js/templates.js
