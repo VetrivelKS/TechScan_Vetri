@@ -1,0 +1,18 @@
+{{#each items}}
+	<div class="repositoryItem " repId="{{full_name}}">
+		<div class="repDetailsCont">
+			<div class="repName">{{full_name}}
+			</div>
+			<div class="repDesc">{{description}}
+			</div>
+			<div class="repUpdatedDate">Updated {{updatedDate updated_at}}</div>
+		</div>
+		<div class="repLangCont">
+			<div class="repLangUsed">{{language}}</div>
+		</div>
+		<div class="repRatingCont">
+			<div class="ratingText">{{starCount stargazers_count}}
+			</div>
+		</div>
+	</div>
+{{/each}}

@@ -3,15 +3,50 @@
 		
   </head>
   <body>
-	<div class="screen1">
+	<div class="pageHeader">
 	</div>
-	<div class="screen2">
+	<div class="screens">
+		<div class="screen1">
+		</div>
+		<div class="screen2">
+			<div class="screen2Header">
+				<div class="searchInput">
+				</div>
+				<div class="searchButton">
+				</div>
+			</div>
+			<div class="repositoryResultsCont">
+				<div class="repResHeader">
+					<div class="repositoryCountCont">
+						<div class="repositoryCount"></div> repository results
+					</div>
+					<div class="sortCont">
+						<select id="sort">
+						  <option value="bestMatch" selected="selected">Best Match</option>
+						  <option value="mostStars">Most Stars</option>
+						  <option value="fewestStars">Fewest Stars</option>
+						  <option value="mostForks">Most Forks</option>
+						  <option value="fewestForks">Fewest Forks</option>
+						  <option value="recentlyUpdated">Recently Updated</option>
+						  <option value="leastRecentlyUpdated">Least Recently Updated</option>
+						</select>
+					</div>
+				</div>
+				<div class="repResults" dispLimit="9">
+					
+				</div>
+			</div>
+		</div>
+		<div class="screen3">
+		</div>
 	</div>
-	<div class="screen3">
+	<div class="pageFooter">
+		<div class="portfolioLink">designed and developed by <a href="https://vetrivelks.github.io/me/">Vetrivel K Subramaniam</a></div>
 	</div>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.0/handlebars.min.js"></script>
 	<script src="js/templates.js"></script>
+	<script src="js/handlebarHelpers.js"></script>
     <script src="js/main.js"></script>
   </body>
 </html>
