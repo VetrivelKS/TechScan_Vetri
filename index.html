@@ -22,7 +22,7 @@
 						<span class="repositoryCount"></span> repository results
 					</div>
 					<div class="sortCont">
-						<select id="sort">
+						sort : <select id="sort">
 						  <option value="bestMatch" selected="selected">Best Match</option>
 						  <option value="mostStars">Most Stars</option>
 						  <option value="fewestStars">Fewest Stars</option>
@@ -33,7 +33,7 @@
 						</select>
 					</div>
 				</div>
-				<div class="repResults" dispLimit="9">
+				<div class="repResults">
 					
 				</div>
 			</div>
@@ -41,13 +41,14 @@
 		<div class="screen3 screen hidden">
 				<div class="backButton" moveTo="s2">&lt;&nbsp;BACK</div>
 				<div class="userDetails"></div>
-				<div class="ownerRepResults" dispLimit="9">
+				<div class="ownerRepResults">
 					
 				</div>
 		</div>
 	</div>
 	<div class="pageFooter">
-		<div class="portfolioLink">designed and developed by <a href="https://vetrivelks.github.io/me/">Vetrivel K Subramaniam</a></div>
+		<div class="loading hidden">loading...</div>
+		<div class="portfolioLink">developed by <a href="https://vetrivelks.github.io/me/">Vetrivel K Subramaniam</a></div>
 	</div>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.0/handlebars.min.js"></script>

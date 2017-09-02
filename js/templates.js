@@ -15,7 +15,7 @@ templates['repResults'] = template({"1":function(container,depth0,helpers,partia
     + alias4((helpers.updatedDate || (depth0 && depth0.updatedDate) || alias2).call(alias1,(depth0 != null ? depth0.updated_at : depth0),{"name":"updatedDate","hash":{},"data":data}))
     + "</div>\r\n		</div>\r\n		<div class=\"repLangCont\">\r\n			<div class=\"repLangUsed\">"
     + alias4(((helper = (helper = helpers.language || (depth0 != null ? depth0.language : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"language","hash":{},"data":data}) : helper)))
-    + "</div>\r\n		</div>\r\n		<div class=\"repRatingCont\">\r\n			<div class=\"ratingText\">"
+    + "</div>\r\n		</div>\r\n		<div class=\"repRatingCont\">\r\n			<div class=\"ratingImgCont\">\r\n				<img class=\"ratingImg\" src=\"img/rating.png\"></img>\r\n			</div>\r\n			<div class=\"ratingText\">"
     + alias4((helpers.starCount || (depth0 && depth0.starCount) || alias2).call(alias1,(depth0 != null ? depth0.stargazers_count : depth0),{"name":"starCount","hash":{},"data":data}))
     + "\r\n			</div>\r\n		</div>\r\n	</div>\r\n";
 },"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
