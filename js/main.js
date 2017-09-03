@@ -2,6 +2,7 @@ var techList = {"techList":["JavaScript","Java","Python","Php","Ruby"]};
 var curRepListUrl = "",selectedTech="",seletedUserId="",ownerDetailsUrl="";
 var screen2Total,screen3Total = 0;
 var screen2NextLimit=1,screen3NextLimit = 1;
+var selectedSort="";
 $(function() {
 	renderScreen1();
 });
@@ -20,10 +21,13 @@ var registerScreen1events = function(){
 			$(e.target).closest('.techItem').addClass("clicked");
 			$(".loading").show();
 			screen2NextLimit = 1;
+			selectedSort = "";
 			selectedTech = $(e.target).closest(".techItem").attr("techName");
-			curRepListUrl = "https://api.github.com/search/repositories?q="+selectedTech+"&page="+screen2NextLimit+"&per_page=9";
+			curRepListUrl = "https://api.github.com/search/repositories?q="+selectedTech+selectedSort+"&page="+screen2NextLimit+"&per_page=9";
 			$.get(curRepListUrl, 
-			screen2Cbk)	
+			function(response){
+				screen2Cbk(response,false);
+				});
 		}
 	});
 	$(".backButton").click(function(e){
@@ -37,10 +41,12 @@ var registerScreen1events = function(){
 			{
 				if( screen2Total > (screen2NextLimit*9) )
 				{
-					curRepListUrl = "https://api.github.com/search/repositories?q="+selectedTech+"&page="+screen2NextLimit+"&per_page=9";
+					curRepListUrl = "https://api.github.com/search/repositories?q="+selectedTech+selectedSort+"&page="+screen2NextLimit+"&per_page=9";
 					$(".loading").show();
 					$.get(curRepListUrl, 
-					screen2Cbk)
+					function(response){
+				screen2Cbk(response,false);
+					});
 				}
 			}
 			else
@@ -52,7 +58,7 @@ var registerScreen1events = function(){
 					$.get(ownerDetailsUrl, 
 					renderUserReposCbk)
 				}
-			}			
+			}
         }
     });
 }
@@ -64,33 +70,39 @@ var registerScreen2events = function(){
 		{
 			switch(selectedVal) {
 				case "bestMatch":
-					sortUrl = curRepListUrl +  "&order=desc";
+					selectedSort = "&order=desc";
 					break;
 				case "mostStars":
-					sortUrl = curRepListUrl +  "&sort=stars&order=desc";
+					selectedSort =  "&sort=stars&order=desc";
 					break;
 				case "fewestStars":
-					sortUrl = curRepListUrl +  "&sort=stars&order=asc";
+					selectedSort = "&sort=stars&order=asc";
 					break;
 				case "mostForks":
-					sortUrl = curRepListUrl +  "&sort=forks&order=desc";
+					selectedSort =  "&sort=forks&order=desc";
 					break;
 				case "fewestForks":
-					sortUrl = curRepListUrl +  "&sort=forks&order=asc";
+					selectedSort = "&sort=forks&order=asc";
 					break;
 				case "recentlyUpdated":
-					sortUrl = curRepListUrl +  "&sort=updated&order=desc";
+					selectedSort = "&sort=updated&order=desc";
 					break;
 				case "leastRecentlyUpdated":
-					sortUrl = curRepListUrl +  "&sort=updated&order=asc";
+					selectedSort = "&sort=updated&order=asc";
 					break;
 				default:
-					console.log("default");
+					selectedSort = "";
 			}
-					sortUrl += "&page=1&per_page="+((screen2NextLimit-1)*9);
-					$.get(sortUrl,function(response){
-						screen2Cbk(response,true);
-					})
+			var limit = (screen2NextLimit-1) ? (screen2NextLimit-1):screen2NextLimit;
+			var sortUrl  = curRepListUrl+ selectedSort + "&page=1&per_page="+(limit*9);
+			if(!$("#sort").hasClass("clicked"))
+			{
+				$("#sort").addClass("clicked");
+				$.get(sortUrl,function(response){
+				$("#sort").removeClass("clicked");
+				screen2Cbk(response,true);
+				});
+			}
 		}
 	});
 	$('.repName').click(function(e){
@@ -112,7 +124,7 @@ var screen2Cbk = function(response,sort)
 	$('.techItem').removeClass("clicked");
 	var template = Handlebars.templates['repResults'];
 	var content = template(response);
-	if(	screen2NextLimit == 1 || sort)
+	if(	screen2NextLimit == 1 || (sort))
 	{
 		$(".screen").addClass("hidden").removeClass("shown");
 		$(".screen2").removeClass("hidden").addClass("shown");
@@ -123,7 +135,7 @@ var screen2Cbk = function(response,sort)
 	$('.repositoryCount').text(response.total_count+" ");
 	screen2Total = response.total_count;
 	registerScreen2events();
-	screen2NextLimit++;
+	!sort && screen2NextLimit++;
 }
 var screen3Cbk = function(response)
 {
