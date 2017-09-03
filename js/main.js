@@ -59,6 +59,7 @@ var registerScreen1events = function(){
 var registerScreen2events = function(){
 	$("#sort").change(function () {
 		var selectedVal =$('#sort option:selected').val();
+		curRepListUrl = "https://api.github.com/search/repositories?q="+selectedTech;
 		if(selectedVal)
 		{
 			switch(selectedVal) {
@@ -86,8 +87,10 @@ var registerScreen2events = function(){
 				default:
 					console.log("default");
 			}
-					sortUrl += pageLimit;
-					$.get(sortUrl,screen2Cbk)
+					sortUrl += "&page=1&per_page="+((screen2NextLimit-1)*9);
+					$.get(sortUrl,function(response){
+						screen2Cbk(response,true);
+					})
 		}
 	});
 	$('.repName').click(function(e){
@@ -104,12 +107,12 @@ var registerScreen2events = function(){
 		}
 	});
 }
-var screen2Cbk = function(response,append)
+var screen2Cbk = function(response,sort)
 {
 	$('.techItem').removeClass("clicked");
 	var template = Handlebars.templates['repResults'];
 	var content = template(response);
-	if(	screen2NextLimit == 1)
+	if(	screen2NextLimit == 1 || sort)
 	{
 		$(".screen").addClass("hidden").removeClass("shown");
 		$(".screen2").removeClass("hidden").addClass("shown");
