@@ -161,6 +161,7 @@ var renderUserReposCbk = function(response)
 	$(".loading").hide();
 	$('.ownerRepResults').append(content);
 	screen3NextLimit++;
+	$('.repName').removeClass("clicked");
 }
 setInterval(function () {
    var vis = $(".loading").css("visibility");
